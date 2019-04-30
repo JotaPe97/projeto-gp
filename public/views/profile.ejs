@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Meera+Inimai" rel="stylesheet">
+    <title>Quinta do Mião</title>
+</head>
+
+<body>
+    <header>
+        <% include ./authenticatedHeader.ejs %>
+    </header>
+    <h2 style="color: #422a13; text-align: center; margin-top: 4%;">Perfil</h2>
+    <div class="profileSection">
+        <div style="margin-left: 7%; margin-top: 7%; align-content: center;">
+            <h3>Nome e Apelido</h3>
+            <ul style="list-style-type: none;">
+                <li>email</li>
+                <li>telefone</li>
+                <li>idade</li>
+                <li>cargo</li>
+            </ul>
+            <button class="btn-editar">Editar Perfil</button>
+        </div>
+        <img style="margin-left:35%;" src="/images/profile.jpg" alt="">
+    </div>
+    <footer>
+        <% include ./footer.ejs %>
+    </footer>
+
+
+</body>
+
+</html>
