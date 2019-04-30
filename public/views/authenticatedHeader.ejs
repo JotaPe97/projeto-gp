@@ -1,0 +1,31 @@
+<nav class="navbar">
+  <div class="container" id="idcontainer" style="margin-bottom: 5%;">
+      <div class="navbar-title-auth">
+              <img src="/images/dog.png" alt="dog"><a class="title" href="#"> <b>Quinta do Mião</b></a>
+      </div>
+      <ul class="navbar-center">
+              <li><a href="#"><span class="contas"></span> Contas</a></li><!--Só para admnistrador-->
+              <li><a href="#"><span class="Adoções"></span> Adoções</a></li><!--Gestão para admnistrador e funcionários-->
+              <li><a href="#"><span class="Animais"></span> Animais</a></li><!--Administrador e funcionarios gerir, utilizador visualizar e fazer pedido de adoção-->
+              <li><a href="#"><span class="Donativos"></span> Donativos</a></li><!--Administrador e funcionários gerir, utilizador visualizar -->
+          </ul>
+      <ul class="navbar-right">
+          <li><a href="#"><span class="registar"></span> Nome</a></li>
+          <li><a href="#"><span class="autenticar"></span> Sair</a></li>
+      </ul>
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+         <img src="/images/menu.png" alt="">
+        </a>
+  </div>
+</nav>
+
+<script>
+  function myFunction() {
+    var x = document.getElementById("idcontainer");
+    if (x.className === "container") {
+      x.className += " responsive";
+    } else {
+      x.className = "container";
+    }
+  }
+  </script>
