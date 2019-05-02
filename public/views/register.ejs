@@ -1,67 +1,100 @@
 <!DOCTYPE html>
 <html lang="pt">
-<head>
-    <meta charset="utf-8" />
-    <title>Quinta do Mião</title>
-    <link href="/css/styles.css" type="text/css" rel="stylesheet" />
-    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-    <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Meera+Inimai'>
-</head>
-<body>
-    <header>
-        <% include ./header.ejs %>
-    </header> 
 
-    <article class="container-form">  
+<head>
+  <meta charset="utf-8" />
+  <title>Quinta do Mião</title>
+  <link href="/css/styles.css" type="text/css" rel="stylesheet" />
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Meera+Inimai'>
+</head>
+
+<body>
+  <header>
+    <% include ./header.ejs %>
+  </header>
+
+  <article class="container-form">
 
     <div class="signupSection">
-        <a href="homepage.ejs" style="margin-top: 97%; background: none; border: none;"><img src="/images/reply.png" alt="reply"></a>
-        <form action="/api/user/register" method="POST" class="signupForm" name="signupform">
-          <h2><b>Efetue o seu registo</b></h2>
-          <ul class="noBullet">                
-            <li>
-              <label for="name"></label> 
-              <input type="text" class="inputFields" id="name" name="name" placeholder="Nome" value="" required style="background-image: url(/images/profil.png); background-position: 224px 7px;
-              background-repeat: no-repeat;"/>
-            </li>
-            <li>
-                <label for="email"></label>
-                <input type="email" class="inputFields" id="email" name="email" placeholder="Email" value="" required style="background-image: url(/images/at.png); background-position: 224px 7px;
-                background-repeat: no-repeat;"/>
-              </li>
-              <li>
-                <label for="dnsc"></label>
-                <input type="date" class="inputFields" id="dnsc" name="dnsc" placeholder="Data de Nascimento" value="" required/>
-              </li>
-              <li>
-                <label for="morada"></label>
-                <input type="text" class="inputFields" id="morada" name="morada" placeholder="Morada" value="" required style="background-image: url(/images/address.png); background-position: 224px 7px;
-                background-repeat: no-repeat;"/>
-              </li>
-              <li>
-                <label for="telefone"></label>
-                <input type="number" class="inputFields" id="telefone" name="telefone" placeholder="Telefone" value="" required style="background-image: url(/images/phone-call.png); background-position: 224px 7px;
-                background-repeat: no-repeat;"/>
-              </li>
-            <li>
-              <label for="password"></label>
-              <input type="password" class="inputFields" id="password" name="password" placeholder="Palavra-passe" value="" required style="background-image: url(/images/key.png); background-position: 224px 7px;
-              background-repeat: no-repeat;"/>
-            </li>
-            <li>
-                <label for="confpassword"></label>
-                <input type="password" class="inputFields" id="confpassword" name="confpassword" placeholder="Confirmar Palavra-passe" value="" required style="background-image: url(/images/key.png); background-position: 224px 7px;
-                background-repeat: no-repeat;"/>
-              </li>
-            <li id="center-btn">
-              <input type="submit" id="join-btn" name="join" alt="Join" value="Registar">
-            </li>
-          </ul>
-        </form>
-      </div>
-    </article>
-    <footer>
-        <% include ./footer.ejs %>
-    </footer>
+      <a href="homepage.ejs" style="margin-top: 97%; background: none; border: none;"><img src="/images/reply.png"
+          alt="reply"></a>
+      <form action="/api/user/register" method="POST" class="signupForm" name="signupform">
+        <h2><b>Efetue o seu registo</b></h2>
+        <ul class="noBullet">
+          <li>
+            <label for="name"></label>
+            <input type="text" class="inputFields" id="name" name="name" placeholder="Nome" value="" required style="background-image: url(/images/profil.png); background-position: 224px 7px;
+              background-repeat: no-repeat;" />
+          </li>
+          <li>
+            <label for="email"></label>
+            <input type="email" class="inputFields" id="email" name="email" placeholder="Email" value="" required style="background-image: url(/images/at.png); background-position: 224px 7px;
+                background-repeat: no-repeat;" />
+          </li>
+          <li>
+            <label for="dnsc"></label>
+            <input type="date" class="inputFields" id="dnsc" name="dnsc" placeholder="Data de Nascimento" value=""
+              required />
+          </li>
+          <li>
+            <label for="morada"></label>
+            <input type="text" class="inputFields" id="morada" name="morada" placeholder="Morada" value="" required
+              style="background-image: url(/images/address.png); background-position: 224px 7px;
+                background-repeat: no-repeat;" />
+          </li>
+          <li>
+            <label for="telefone"></label>
+            <input type="number" class="inputFields" id="telefone" name="telefone" placeholder="Telefone" value=""
+              required style="background-image: url(/images/phone-call.png); background-position: 224px 7px;
+                background-repeat: no-repeat;" />
+          </li>
+          <li>
+            <label for="password"></label>
+            <input type="password" class="inputFields" id="password" name="password" placeholder="Palavra-passe"
+              value="" required style="background-image: url(/images/key.png); background-position: 224px 7px;
+              background-repeat: no-repeat;" />
+          </li>
+          <li>
+            <label for="confpassword"></label>
+            <input type="password" class="inputFields" id="confpassword" name="confpassword"
+              placeholder="Confirmar Palavra-passe" value="" required style="background-image: url(/images/key.png); background-position: 224px 7px;
+                background-repeat: no-repeat;" />
+          </li>
+          <li id="center-btn">
+            <input type="submit" id="join-btn" name="join" alt="Join" value="Registar">
+          </li>
+        </ul>
+      </form>
+    </div>
+  </article>
+  <footer>
+    <% include ./footer.ejs %>
+  </footer>
 </body>
+
 </html>
+
+<script>
+  jQuery.validator.setDefaults({
+    debug: true,
+    success: "valid"
+  });
+
+  $.validator.addMethod("pwcheck", function (value) {
+    return /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/.test(value)
+  });
+
+  $(".signupForm").validate({
+    rules: {
+      password: {
+        required: true,
+        minlength: 8,
+        pwcheck: true
+      },
+      confpassword: {
+        minlength: 8,
+        equalTo: '#password'
+      }
+    }
+  });</script>
