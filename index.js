@@ -19,7 +19,6 @@ app.get("/homepageAuth", function (req, res) {
     res.render(__dirname + "/" + "/public/views/authenticatedHomepage.ejs");
 });
 
-
 app.get("/api/user/register", function(req, res){
     res.render(__dirname + "/" + "/public/views/register.ejs");
 });
@@ -36,8 +35,16 @@ app.get("/api/user/recoverPasswordSuccess", function(req, res){
     res.render(__dirname + "/" + "/public/views/recoverPasswordSuccess.ejs");
 });
 
+app.get("/api/user/editPassword", function(req, res){
+    res.render(__dirname + "/" + "/public/views/editPassword.ejs");
+});
+
 app.get("/api/user/profile", function(req, res){
     res.render(__dirname + "/" + "/public/views/profile.ejs");
+});
+
+app.get("/api/user/editProfile", function(req, res){
+    res.render(__dirname + "/" + "/public/views/editProfile.ejs");
 });
 
 var server = app.listen(8081, function () {

@@ -15,7 +15,6 @@
     <article class="container-form">  
 
     <div class="loginSection">
-        <a href="homepage.ejs" style="margin-top: 45%; background: none; border: none;"><img src="/images/reply.png" alt="reply"></a>
         <form action="/api/user/login" method="POST" class="loginForm" name="lgoinform">
           <h2><b>Efetue a autenticação</b></h2>
           <ul class="noBullet">               
@@ -29,8 +28,9 @@
               <input type="password" class="inputFields" id="password" name="password" placeholder="Palavra-passe" value="" required style="background-image: url(/images/key.png); background-position: 224px 7px;
               background-repeat: no-repeat;"/>
             </li>
-            <li style="text-align: left; text-decoration: underline;"><a>Esqueceu-se da palavra-passe?</a></li>
+            <li style="text-align: left; text-decoration: underline; margin-left: 16%;"><a>Esqueceu-se da palavra-passe?</a></li>
             <li id="center-btn">
+                <input type="button" id="join-btn" name="join" alt="Join" value="Voltar  ">
               <input type="submit" id="join-btn" name="join" alt="Join" value="Autenticar">
             </li>
           </ul>
