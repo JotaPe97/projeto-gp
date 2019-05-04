@@ -15,7 +15,7 @@
     </header>
     <h2 style="color: #422a13; text-align: center; margin-top: 4%;">Editar Perfil</h2>
     <div class="editProfileSection">
-        <form action="/api/user/register" method="POST" class="editForm" name="editForm">
+        <form action="/api/user/editProfile" method="POST" class="editForm" name="editForm">
             <table class="tableEdit" style="margin-top: 7%;">
                 <tr>
                     <td for="name">Nome</td>
@@ -42,20 +42,18 @@
                 </tr>
                 <tr>
                     <td for="phoneNumber">Nº de telefone</td>
-                    <td> <input type="tel" class="inputFieldsE" id="phoneNumber" name="987654321" placeholder="Telefone"
+                    <td> <input type="tel" class="inputFieldsE" id="phoneNumber" name="phoneNumber" placeholder="Telefone"
                             value="" required style="background-image: url(/images/phone-call.png); background-position: 224px 7px;
                               background-repeat: no-repeat;" minlength="9"></td>
                 </tr>
                 <tr>
                     <td for="password">Password</td>
-                    <td> <input type="password" class="inputFieldsE" id="password" name="password"
-                            placeholder="****************" value="" required style="background-image: url(/images/key.png); background-position: 224px 7px;
-                            background-repeat: no-repeat;"></td>
+                    <td><a href="/api/user/changePassword"> <input type="button" class="btn-editar" name="join" alt="Join" value="Alterar Password"></td></a>
                 </tr>
             </table>
             <ul style="list-style-type: none; margin-left: 5%;">
                 <li>
-                    <input type="button" class="btn-editar" name="join" alt="Join" value="Voltar  ">
+                   <input type="button" class="btn-editar" name="join" alt="Join" value="Voltar  ">
                     <input type="submit" class="btn-editar" name="join" alt="Join" value="Guardar">
                 </li>
             </ul>
