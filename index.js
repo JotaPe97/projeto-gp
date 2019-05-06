@@ -57,14 +57,24 @@ app.post("/api/user/login", function (req, res) {
     email = req.body.email;
     password = req.body.password;
 
-    const promise = auth.signInWithEmailAndPassword(email, password);
+    const promise = auth.signInWithEmailAndPassword(email, password).then(function () {
+        var user = firebase.auth().currentUser;
+        res.render(__dirname + "/" + "/public/views/authenticatedHomepage.ejs", {
+            name: user.displayName
+        });
+    }).catch(function(error){
+        res.render(__dirname + "/" + "/public/views/login.ejs",{
+           validacao: "O email ou a palavra-passe estão incorretos."
+        });
+    });
     promise.catch(e => console.log(e.message));
 
     var user = firebase.auth().currentUser;
-
-    res.render(__dirname + "/" + "/public/views/authenticatedHomepage.ejs");
 });
 
+app.get("/api/user/login", function (req, res) {
+    res.render(__dirname + "/" + "/public/views/login.ejs", {validacao: {}});
+});
 
 app.get("/api/user/logout", function (req, res) {
     firebase.auth().signOut().then(function () {
@@ -88,10 +98,6 @@ app.get("/homepageAuth", function (req, res) {
 
 app.get("/api/user/register", function (req, res) {
     res.render(__dirname + "/" + "/public/views/register.ejs");
-});
-
-app.get("/api/user/login", function (req, res) {
-    res.render(__dirname + "/" + "/public/views/login.ejs");
 });
 
 app.get("/api/user/recoverPassword", function (req, res) {
@@ -140,7 +146,8 @@ app.post("/api/user/editProfile", function (req, res) {
 });
 
 app.get("/api/user/changePassword", function (req, res) {
-    res.render(__dirname + "/" + "/public/views/changePassword.ejs");
+    var curPassword = "oioioioi";
+    res.render(__dirname + "/" + "/public/views/changePassword.ejs", {oldPass: curPassword});
 });
 
 app.post("/api/user/changePassword", function (req, res) {
@@ -155,15 +162,12 @@ app.post("/api/user/changePassword", function (req, res) {
         user.updatePassword(newPassword).then(() => {
         }, (error) => {
         });
-        res.render(__dirname + "/" + "/public/views/homepageAuth.ejs");
+        res.render(__dirname + "/" + "/public/views/authenticatedHomepage.ejs");
     }).catch(function (error) {
-        console.log("erro: pass nao corresponde");
+        //res.render(__dirname + "/" + "/public/views/changePassword.ejs", {error: error});
     });
-
-
-
-
 });
+
 
 var server = app.listen(8081, function () {
     var host = server.address().address === "::" ? "localhost" :
