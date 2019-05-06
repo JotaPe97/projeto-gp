@@ -213,14 +213,12 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 45%;
-    height: 40%;
+    height: 50%;
     text-align: center;
-    display: flex;
+    display: inline-block;
     color: #422a13;
     box-shadow: 3px 10px 20px 5px rgba(0, 0, 0, 0.5);
-    margin-bottom: 5%;
     background: rgba(191, 182, 167, 0.8);
-
 }
 
 .signupForm,
@@ -232,13 +230,14 @@ body {
 .signupForm h2,
 .loginForm h2 {
     font-weight: 300;
+    margin-right: 30%;
 }
 
 .inputFields {
     margin: 15px 0;
     font-size: 16px;
-    padding: 10px;
-    width: 250px;
+    padding: 2%;
+    width: 65%;
     border: 1px solid #eb8213;
     border-top: none;
     border-left: none;
@@ -255,7 +254,7 @@ body {
     width:400px;
 }
 
-#join-btn {
+.join-btn {
     border: 1px solid #eb8213;
     background: rgba(20, 20, 20, 0.6);
     font-size: 18px;
@@ -266,7 +265,7 @@ body {
     transition: 0.4s;
 }
 
-#join-btn:hover {
+.join-btn:hover {
     background: rgba(20, 20, 20, 0.8);
 }
 
@@ -341,9 +340,30 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     border-right: none;
     padding: 2%;
     font-size: 16px;
-    padding: 10px;
-    width: 250px;
+    padding: 2%;
+    width: 65%;
     opacity: 1;
     outline: none;
 }
 
+/*Alerta de erros*/
+
+.alert {
+    padding: 20px;
+    color: white;
+  }
+  
+  .closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .closebtn:hover {
+    color: black;
+  }
