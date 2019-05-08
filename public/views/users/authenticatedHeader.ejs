@@ -1,7 +1,7 @@
 <nav class="navbar">
   <div class="container" id="idcontainer" style="margin-bottom: 5%;">
       <div class="navbar-title-auth">
-              <img src="/images/dog.png" alt="dog"><a class="title" href="/homepageAuth"> <b>Quinta do Mião</b></a>
+              <img src="/images/dog.png" alt="dog"><a class="title" href="/auth/homepageAuth"> <b>Quinta do Mião</b></a>
       </div>
       <ul class="navbar-center">
               <li><a href="#"><span class="contas"></span> Contas</a></li><!--Só para admnistrador-->
@@ -10,8 +10,8 @@
               <li><a href="#"><span class="Donativos"></span> Donativos</a></li><!--Administrador e funcionários gerir, utilizador visualizar -->
           </ul>
       <ul class="navbar-right">
-          <li><a href="/api/user/profile"><span class="registar"></span> Nome</a></li>
-          <li><a href="/api/user/logout"><span class="autenticar"></span> Sair</a></li>
+          <li><a href="/user/profile"><span class="registar"></span> <%= name %></a></li>
+          <li><a href="/auth/logout"><span class="autenticar"></span> Sair</a></li>
       </ul>
       <a href="javascript:void(0);" class="icon" onclick="myFunction()">
          <img src="/images/menu.png" alt="">

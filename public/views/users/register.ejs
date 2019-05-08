@@ -17,7 +17,7 @@
   <article class="container-form">
 
     <div class="signupSection">
-      <form action="/api/user/register" method="POST" class="signupForm" name="signupform">
+      <form action="/auth/register" method="POST" class="signupForm" name="signupform">
         <h2 style="margin-left: 17%;"><b>Efetue o seu registo</b></h2>
         <ul class="noBullet">
           <li>
@@ -33,7 +33,7 @@
           <li>
             <label for="bornDate"></label>
             <input type="date" class="inputFields" id="bornDate" name="bornDate" placeholder="Data de Nascimento"
-              value="" required />
+              value="" min="1930-01-01" max="2001-01-31" required/>
           </li>
           <li>
             <label for="address"></label>
@@ -51,7 +51,7 @@
             <label for="password"></label>
             <input type="password" class="inputFields" id="password" name="password" placeholder="Palavra-passe"
               value="" required style="background-image: url(/images/key.png); background-position: 224px 7px;
-              background-repeat: no-repeat;" minlength="8"/>
+              background-repeat: no-repeat;" minlength="8" />
           </li>
           <li>
             <label for="confpassword"></label>
@@ -60,7 +60,7 @@
                 background-repeat: no-repeat;" />
           </li>
           <li id="center-btn">
-              <a href="/homepageAuth"><input type="button" class="join-btn" name="join" alt="Join" value="Voltar"></a>
+            <a href="/auth/homepage"><input type="button" class="join-btn" name="join" alt="Join" value="Voltar"></a>
             <input type="submit" class="join-btn" name="join" alt="Join" value="Registar">
           </li>
         </ul>
@@ -74,11 +74,10 @@
 
 </html>
 
-<script>
+<script type="text/javascript">
   var password = document.getElementById("password");
   var confirm_password = document.getElementById("confpassword");
-  var date = document.getElementById("bornDate");
-  var year = Date.parse(date).year;
+  var birth = document.getElementById("bornDate");
 
   function validatePassword() {
     if (password.value != confirm_password.value) {
@@ -87,16 +86,6 @@
       confirm_password.setCustomValidity('');
     }
   }
-  /*
-    function validateAge() {
-      if (year > 2001) {
-        confirm_password.setCustomValidity("É necessário ter mais de 18 anos.");
-      } else {
-        confirm_password.setCustomValidity('');
-      }
-    }*/
-
-  /*&& password.match(/[a-z]/g) && password.match(/[A-Z]/g) && password.match(/[0-9]/g) && password.match(/[^a-zA-Z\d]/g) && password.length >= 8*/
 
   password.onchange = validatePassword;
   confirm_password.onkeyup = validatePassword;

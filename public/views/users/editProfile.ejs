@@ -15,45 +15,45 @@
     </header>
     <h2 style="color: #422a13; text-align: center; margin-top: 4%;">Editar Perfil</h2>
     <div class="editProfileSection">
-        <form action="/api/user/editProfile" method="POST" class="editForm" name="editForm">
+        <form action="/user/editProfile" method="POST" class="editForm" name="editForm">
             <table class="tableEdit" style="margin-top: 7%;">
                 <tr>
                     <td for="name">Nome</td>
-                    <td> <input type="text" class="inputFieldsE" id="name" name="name" value=""
+                    <td> <input type="text" class="inputFieldsE" id="name" name="name" value=<%= name %>
                             required style="background-image: url(/images/profil.png); background-position: 224px 7px;
                             background-repeat: no-repeat;"></td>
                 </tr>
                 <tr>
                     <td for="email">Email</td>
-                    <td> <input type="email" class="inputFieldsE" id="email" name="email"
-                            value="" required style="background-image: url(/images/at.png); background-position: 224px 7px;
+                    <td> <input type="email" class="inputFieldsE" id="email" name="email" value=<%= email %>
+                           required style="background-image: url(/images/at.png); background-position: 224px 7px;
                             background-repeat: no-repeat;"> </td>
                 </tr>
                 <tr>
-                    <td for="bornDate">Data de nascimento</td>
-                    <td> <input type="date" class="inputFieldsE" id="bornDate" name="bornDate" 
-                            value="" required></td>
+                    <td for="bornDate">Data de nascimento</td> 
+                    <td> <input type="date" class="inputFieldsE" id="bornDate" name="bornDate" min="1930-01-01" max="2001-01-31"
+                        value=<%= bornDate %>  required></td>
                 </tr>
                 <tr>
                     <td for="address">Morada</td>
-                    <td> <input type="text" class="inputFieldsE" id="address" name="address"
-                            value="" required style="background-image: url(/images/address.png); background-position: 224px 7px;
+                    <td> <input type="text" class="inputFieldsE" id="address" name="address" value=<%= address %>
+                            required style="background-image: url(/images/address.png); background-position: 224px 7px;
                               background-repeat: no-repeat;"></td>
                 </tr>
                 <tr>
                     <td for="phoneNumber">Nº de telefone</td>
-                    <td> <input type="tel" class="inputFieldsE" id="phoneNumber" name="phoneNumber"
-                            value="" required style="background-image: url(/images/phone-call.png); background-position: 224px 7px;
+                    <td> <input type="tel" class="inputFieldsE" id="phoneNumber" name="phoneNumber" value=<%= phoneNumber %>
+                             required style="background-image: url(/images/phone-call.png); background-position: 224px 7px;
                               background-repeat: no-repeat;" minlength="9"></td>
                 </tr>
                 <tr>
                     <td for="password">Password</td>
-                    <td><a href="/api/user/changePassword"> <input type="button" class="btn-editar" name="join" alt="Join" value="Alterar Password"></td></a>
+                    <td><a href="/user/changePassword"> <input type="button" class="btn-editar" name="join" alt="Join" value="Alterar Password"></td></a>
                 </tr>
             </table>
             <ul style="list-style-type: none; margin-left: 5%;">
                 <li>
-                   <input type="button" class="btn-editar" name="join" alt="Join" value="Voltar  ">
+                    <a href="/user/profile"> <input type="button" class="btn-editar" name="join" alt="Join" value="Voltar  "></a>
                     <input type="submit" class="btn-editar" name="join" alt="Join" value="Guardar">
                 </li>
             </ul>
