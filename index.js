@@ -3,7 +3,7 @@ var app = express();
 const fs = require('fs');
 var firebase = require('firebase');
 
-// Initialize Firebase
+// Initialize Firebase k
 var config = {
     apiKey: "AIzaSyCh4FmRUWQV4SVjfVIVCZOm8RXu0jKGJr8",
     authDomain: "gp-project-e7762.firebaseapp.com",
