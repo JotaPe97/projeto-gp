@@ -20,7 +20,7 @@
 
 
 
-      <form action="/api/user/login" method="POST" class="loginForm" name="lgoinform">
+      <form action="/auth/login" method="POST" class="loginForm" name="loginform">
         <h2><b>Efetue a autenticação</b></h2>
         <ul class="noBullet">
           <li>
@@ -30,26 +30,18 @@
           </li>
           <li>
             <label for="password"></label>
-            <input type="text" class="inputFields" id="password" name="password" placeholder="Palavra-passe" value=""
+            <input type="password" class="inputFields" id="password" name="password" placeholder="Palavra-passe" value=""
               required style="background-image: url(/images/key.png); background-position: 224px 7px;
               background-repeat: no-repeat;" />
           </li>
-          <li style="text-align: left; text-decoration: underline; margin-left: 16%;"><a>Esqueceu-se da
+          <li style="text-align: left; text-decoration: underline; margin-left: 16%;"><a href="/user/recoverPassword" style="color:#422a13;">Esqueceu-se da
               palavra-passe?</a></li>
           <li id="center-btn">
-            <a href="/homepage"> <input type="button" class="join-btn" name="join" alt="Join" value="Voltar  "></a>
+            <a href="/auth/homepage"> <input type="button" class="join-btn" name="join" alt="Join" value="Voltar  "></a>
             <input type="submit" class="join-btn" name="join" alt="Join" value="Autenticar">
           </li>
         </ul>
-      </form>
-
-      <div class="alert">
-        <% if (validacao) { %>
-        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-        <p id="validacao"><%= validacao %></p>
-        <%}%>
-      </div>
-     
+      </form>  
 
     </div>
   </article>

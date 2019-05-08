@@ -286,6 +286,16 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 /*Perfil*/
+
+.propertiesUl {
+    list-style-image:url("/images/play-button.png");
+    margin-bottom: 12%;
+}
+
+.propertiesUl li{
+    padding: 1%;
+}
+
 .profileSection {
     opacity: 0.8;
     background-color: #422a13;

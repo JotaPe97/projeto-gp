@@ -17,14 +17,14 @@
     <div class="profileSection">
         <div style="margin-left: 7%; margin-top: 7%; align-content: center; width: 70%;">
             <h3>Nome e Apelido</h3>
-            <ul style="list-style-type: none; margin-bottom: 12%;">
-                <li>email</li>
-                <li>telefone</li>
-                <li>idade</li>
-                <li>cargo</li>
+            <ul class="propertiesUl">
+                <li><%= email %></li>
+                <li><%= phoneNumber %></li>
+                <li><%= age %></li>
+                <li>Sem cargo</li>
             </ul>
-            <a href="/homepageAuth"> <input type="button" class="btn-editar" name="join" alt="Join" value="Voltar  "></a>
-            <a href="/api/user/editProfile"> <button class="btn-editar" style="align-content: center;">Editar Perfil</button></a> 
+            <a href="/auth/homepageAuth"> <input type="button" class="btn-editar" name="join" alt="Join" value="Voltar  "></a>
+            <a href="/user/editProfile"> <button class="btn-editar" style="align-content: center;">Editar Perfil</button></a> 
         </div>
         <img src="/images/profile.jpg" alt="">
     </div>
