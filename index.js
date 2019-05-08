@@ -3,7 +3,7 @@ var app = express();
 const fs = require('fs');
 var firebase = require('firebase');
 
-// Initialize Firebase
+// Initialize Firebase k
 var config = {
     apiKey: "AIzaSyCh4FmRUWQV4SVjfVIVCZOm8RXu0jKGJr8",
     authDomain: "gp-project-e7762.firebaseapp.com",
@@ -62,9 +62,9 @@ app.post("/api/user/login", function (req, res) {
         res.render(__dirname + "/" + "/public/views/authenticatedHomepage.ejs", {
             name: user.displayName
         });
-    }).catch(function(error){
-        res.render(__dirname + "/" + "/public/views/login.ejs",{
-           validacao: "O email ou a palavra-passe estão incorretos."
+    }).catch(function (error) {
+        res.render(__dirname + "/" + "/public/views/login.ejs", {
+            validacao: "O email ou a palavra-passe estão incorretos."
         });
     });
     promise.catch(e => console.log(e.message));
@@ -73,7 +73,9 @@ app.post("/api/user/login", function (req, res) {
 });
 
 app.get("/api/user/login", function (req, res) {
-    res.render(__dirname + "/" + "/public/views/login.ejs", {validacao: {}});
+    res.render(__dirname + "/" + "/public/views/login.ejs", {
+        validacao: {}
+    });
 });
 
 app.get("/api/user/logout", function (req, res) {
@@ -133,13 +135,9 @@ app.post("/api/user/editProfile", function (req, res) {
     user.updateProfile({
         displayName: username,
         email: email
-    }).then(function () {
-    }).catch(function (error) {
-    });
+    }).then(function () {}).catch(function (error) {});
 
-    user.updateEmail(email).then(() => {
-    }, (error) => {
-    });
+    user.updateEmail(email).then(() => {}, (error) => {});
 
     updateUserData(user.uid, username, email, bornDate, address, phoneNumber);
     res.render(__dirname + "/" + "/public/views/homepage.ejs");
@@ -147,7 +145,9 @@ app.post("/api/user/editProfile", function (req, res) {
 
 app.get("/api/user/changePassword", function (req, res) {
     var curPassword = "oioioioi";
-    res.render(__dirname + "/" + "/public/views/changePassword.ejs", {oldPass: curPassword});
+    res.render(__dirname + "/" + "/public/views/changePassword.ejs", {
+        oldPass: curPassword
+    });
 });
 
 app.post("/api/user/changePassword", function (req, res) {
@@ -159,9 +159,7 @@ app.post("/api/user/changePassword", function (req, res) {
     var credential = firebase.auth.EmailAuthProvider.credential(user.email, oldPassword);
 
     user.reauthenticateAndRetrieveDataWithCredential(credential).then(function () {
-        user.updatePassword(newPassword).then(() => {
-        }, (error) => {
-        });
+        user.updatePassword(newPassword).then(() => {}, (error) => {});
         res.render(__dirname + "/" + "/public/views/authenticatedHomepage.ejs");
     }).catch(function (error) {
         //res.render(__dirname + "/" + "/public/views/changePassword.ejs", {error: error});
