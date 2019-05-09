@@ -1,13 +1,12 @@
 variables:
   CONTAINER_IMAGE_WEBSERVER: ${CI_REGISTRY}/${CI_PROJECT_PATH}/webserver:${CI_BUILD_REF_NAME}_${CI_BUILD_REF}
+  CONTAINER_IMAGE_WEBSERVER_LATEST: ${CI_REGISTRY}/${CI_PROJECT_PATH}/webserver:latest
+  KUBE_NAMESPACE: "default"
 
 before_script:
 - LOWERCASE_CONTAINER_IMAGE_WEBSERVER=$(echo "${CONTAINER_IMAGE_WEBSERVER}" | tr '[:upper:]' '[:lower:]')
+- LOWERCASE_CONTAINER_IMAGE_WEBSERVER_LATEST=$(echo "${CONTAINER_IMAGE_WEBSERVER_LATEST}" | tr '[:upper:]' '[:lower:]')
 
-
-cache:  
-  paths:
-    - node_modules/
 services:
 - docker:dind #Start the docker daemon
 
@@ -23,11 +22,12 @@ test:
     NODE_ENV: 'test'
   script:
   - npm install --silent
+  - npm test
 
-build_webserver:
+build:
   stage: build # build image only after test passed
-  only: [master]  #build and push images only for master branch commits;
-  image: docker:latest
+ # only: [master]  #build and push images only for master branch commits;
+  image: docker:git
   services:
   - docker:dind
   before_script:
@@ -36,8 +36,10 @@ build_webserver:
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
     #- "docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY"
   script:
-  
+  - echo "${CASE_CONTAINER_IMAGE_WEBSERVER}"
+  - echo "${LOWERCASE_CONTAINER_IMAGE_WEBSERVER}"
   - docker build  --file Dockerfile -t ${LOWERCASE_CONTAINER_IMAGE_WEBSERVER} .
+  - docker tag ${LOWERCASE_CONTAINER_IMAGE_WEBSERVER} ${LOWERCASE_CONTAINER_IMAGE_WEBSERVER_LATEST}
   - docker push ${LOWERCASE_CONTAINER_IMAGE_WEBSERVER}
 
 
