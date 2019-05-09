@@ -33,11 +33,12 @@ build:
   before_script:
     - docker version
     - docker info
-    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+    
     #- "docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY"
   script:
   - echo "${CASE_CONTAINER_IMAGE_WEBSERVER}"
   - echo "${LOWERCASE_CONTAINER_IMAGE_WEBSERVER}"
+  - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
   - docker build  --file Dockerfile -t ${LOWERCASE_CONTAINER_IMAGE_WEBSERVER} .
   - docker tag ${LOWERCASE_CONTAINER_IMAGE_WEBSERVER} ${LOWERCASE_CONTAINER_IMAGE_WEBSERVER_LATEST}
   - docker push ${LOWERCASE_CONTAINER_IMAGE_WEBSERVER}
