@@ -32,7 +32,7 @@ build:
   - docker:dind
   before_script:
     - docker version
-    - docker info
+    #- docker info
     
     #- "docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY"
   script:
