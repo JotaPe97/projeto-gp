@@ -3,8 +3,8 @@ variables:
 
 before_script:
 - LOWERCASE_CONTAINER_IMAGE_WEBSERVER=$(echo "${CONTAINER_IMAGE_WEBSERVER}" | tr '[:upper:]' '[:lower:]')
+- docker info
 
-#Hugo
 cache:  
   paths:
     - node_modules/
