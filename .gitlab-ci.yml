@@ -3,7 +3,7 @@ variables:
 
 before_script:
 - LOWERCASE_CONTAINER_IMAGE_WEBSERVER=$(echo "${CONTAINER_IMAGE_WEBSERVER}" | tr '[:upper:]' '[:lower:]')
-- docker info
+
 
 cache:  
   paths:
@@ -28,7 +28,7 @@ test:
 build_webserver:
   stage: build # build image only after test passed
   only: [master]  #build and push images only for master branch commits;
-  image: docker:latest 
+  image: docker:git 
   services:
   - docker:dind
   script:
