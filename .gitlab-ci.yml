@@ -26,15 +26,14 @@ test:
 
 build:
   stage: build # build image only after test passed
- # only: [master]  #build and push images only for master branch commits;
+  only: [master]  #build and push images only for master branch commits;
   image: docker:git
   services:
   - docker:dind
+
   before_script:
     - docker version
-    #- docker info
-    
-    #- "docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY"
+
   script:
   - echo "${CASE_CONTAINER_IMAGE_WEBSERVER}"
   - echo "${LOWERCASE_CONTAINER_IMAGE_WEBSERVER}" 
